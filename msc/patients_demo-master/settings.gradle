@@ -1,0 +1,6 @@
+rootProject.name = 'patients'
+include 'common'
+include 'front'
+include 'worker'
+include 'web'
+

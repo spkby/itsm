@@ -1,0 +1,41 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+group 'com.itsy.pub.courses'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'io.spring.dependency-management'
+
+dependencyManagement {
+    imports {
+        mavenBom SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(":common")
+
+    // https://mvnrepository.com/artifact/redis.clients/jedis
+    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
+
+
+    compile group: 'org.mybatis', name: 'mybatis', version: '3.4.6'
+    compile group: 'org.mybatis', name: 'mybatis-spring', version: '1.3.2'
+
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17'
+
+    testCompile group: 'junit', name: 'junit'
+    testCompile group: 'org.mockito', name: 'mockito-core'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.itsm.pub.courses.patients.worker.WorkerMain'
+    }
+}
