@@ -1,0 +1,6 @@
+rootProject.name = 'medecine'
+include 'models'
+include 'report'
+include 'web'
+include 'front'
+

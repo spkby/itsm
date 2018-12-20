@@ -1,0 +1,31 @@
+This documentation is developed for application that helps to determine the reachable towns/cities from a starting
+point in a given amount of time.
+
+The application expects user`s input in the form of POST Http request in json format as:
+{
+    "city": "santa clara",
+    "time": 40
+}
+The application responses in json format as well. Response represents list of cities reachable from starting city for
+provided amount of time.
+
+The application implements Depth First Search algorithm.
+It receives request with user input (that represents object of SearchDetails class) in it`s body, calls NodeService`s
+method findCities and passes the data in the method, where all the work happens.
+At start it gets starting point from searchDetails parameter, checks if cache consists search details with such
+parameters. If so, it returns list of cities from cache. Then it checks if stack is not empty, retrieves the last
+element from it and iterates by collections of node`s neighbours, checks if neighbour is reachable from starting
+point for a given amount of time. If so, it adds city to cities list and adds node to stack. Execution of method ends
+when there is no elements in the stack.
+
+Asymptotic upper bound of the algorithm is O(n) because of the more nodes the more time should be spent for searching
+it`s reachable points.
+At the same time the application uses LFU cache for often repeated requests. It stores SearchDetails object as a key and
+List of cities as the value in form of HashMap.
+
+After search of reachable cities the app puts the result in LFU cache where it stores SearchDetails object as a key and
+List of cities as the value in form of HashMap.
+
+At application start it loads all the data from H2 database to the memory, so the more nodes in graph the more memory
+application consumes. So, this application does not fit for production usage.
+

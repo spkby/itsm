@@ -1,0 +1,10 @@
+rootProject.name = 'drugs-pay-app'
+
+include 'entity'
+include 'application'
+include 'web'
+include 'repository'
+include 'service'
+include 'processor'
+include 'mybatis'
+

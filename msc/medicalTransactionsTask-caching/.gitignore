@@ -1,0 +1,15 @@
+/medicalTransactionModel/build
+/medicalTransactionModel/out
+/transactionsReporting/build
+/transactionsReporting/out
+/restApi/build
+/restApi/out
+/menu/build
+/menu/out
+/build
+/out
+/reports
+/.idea
+/.gradle
+.gitattributes
+liquidBaseSample.iml

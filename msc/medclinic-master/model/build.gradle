@@ -1,0 +1,44 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+group 'com.training'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'io.spring.dependency-management'
+
+dependencyManagement {
+    imports {
+        mavenBom SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.hibernate', name: 'hibernate-core'
+    compile group: 'org.hibernate', name: 'hibernate-envers'
+
+    compile group: 'org.springframework', name: 'spring-core'
+    compile group: 'org.springframework', name: 'spring-beans'
+    compile group: 'org.springframework', name: 'spring-context'
+    compile group: 'org.springframework', name: 'spring-context-support'
+    compile group: 'org.springframework', name: 'spring-jdbc'
+    compile group: 'org.springframework', name: 'spring-tx'
+
+    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+    compile group: 'org.liquibase', name: 'liquibase-core'
+
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-config
+    compile group: 'org.springframework.security', name: 'spring-security-config'
+    // https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons
+    compile group: 'org.springframework.data', name: 'spring-data-commons'
+    // https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
+    compile group: 'org.springframework.data', name: 'spring-data-jpa'
+
+    testCompile group: 'junit', name: 'junit'
+    testCompile group: 'org.mockito', name: 'mockito-core'
+}

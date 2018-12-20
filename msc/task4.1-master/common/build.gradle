@@ -1,0 +1,26 @@
+group 'serikov.victor.itsm'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.springframework', name: 'spring-context', version: '4.1.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-tx', version: '4.1.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-orm', version: '5.1.2.RELEASE'
+
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.31'
+
+    // https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp
+    compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
+
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-gradle-plugin
+    compile group: 'org.hibernate', name: 'hibernate-gradle-plugin', version: '5.3.7.Final'
+    compile group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: '8.0.5'
+}

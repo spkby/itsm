@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.training.mapper.TransactionMapper">
+    <resultMap id="transactionResultMap" type="com.training.Transaction">
+        <id column="tr_id" property="id"/>
+        <result column="tr_date" property="date"/>
+
+        <result column="product_id" property="product_id.id"/>
+        <result column="product_name" property="product_id.name"/>
+        <result column="product_state_id" property="product_id.state_id.id"/>
+        <result column="product_state_code" property="product_id.state_id.code"/>
+        <result column="product_state_name" property="product_id.state_id.name"/>
+
+        <result column="patient_id" property="patient_id.id"/>
+        <result column="patient_phone" property="patient_id.phone"/>
+        <result column="patient_state_id" property="patient_id.state_id.id"/>
+        <result column="patient_state_code" property="patient_id.state_id.code"/>
+        <result column="patient_state_name" property="patient_id.state_id.name"/>
+
+    </resultMap>
+
+    <select id="getIdTransaction" resultMap="transactionResultMap" parameterType="Integer">
+        select tr.id        tr_id,
+               tr.date      tr_date,
+               pat.id       patient_id,
+               pat.phone    patient_phone,
+               pat.state_id patient_state_id,
+               pat_s.code   patient_state_code,
+               pat_s.name   patient_state_name,
+               pr.id        product_id,
+               pr.name      product_name,
+               pr.state_id  product_state_id,
+               pr_s.code    product_state_code,
+               pr_s.name    product_state_name
+        from transaction tr
+                 inner join products pr on tr.product_id = pr.id
+                 inner join patients pat on tr.patient_id = pat.id
+                 inner join states pat_s on pat.state_id = pat_s.id
+                 inner join states pr_s on pr.state_id = pr_s.id
+        where tr.id = #{value}
+    </select>
+
+    <select id="getListTransaction" resultMap="transactionResultMap">
+        select tr.id        tr_id,
+               tr.date      tr_date,
+               pr.id        product_id,
+               pr.name      product_name,
+               pr.state_id  product_state_id,
+               pat.id       patient_id,
+               pat.phone    patient_phone,
+               pat.state_id patient_state_id,
+               pat_s.code   patient_state_code,
+               pat_s.name   patient_state_name,
+               pr_s.code    product_state_code,
+               pr_s.name    product_state_name
+        from transaction tr
+                 inner join products pr on tr.product_id = pr.id
+                 inner join patients pat on tr.patient_id = pat.id
+                 inner join states pat_s on pat.state_id = pat_s.id
+                 inner join states pr_s on pr.state_id = pr_s.id
+    </select>
+</mapper>

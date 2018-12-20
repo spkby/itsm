@@ -1,0 +1,36 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea
+.gradle
+drugs-pay-app.iml
+Будет удалено .gradle/
+Будет удалено .idea/encodings.xml
+Будет удалено .idea/gradle.xml
+Будет удалено .idea/misc.xml
+Будет удалено .idea/workspace.xml
+Будет удалено application/
+Будет удалено drugs-pay-app.iml
+Будет удалено entity/
+Будет удалено gradle/
+Будет удалено gradlew
+Будет удалено gradlew.bat
+Будет удалено mybatis/build.gradle
+Будет удалено mybatis/src/test/
+Будет удалено processor/
+Будет удалено repository/
+Будет удалено result.xlsx
+Будет удалено service/
+Будет удалено settings.gradle
+Будет удалено web/
+Будет удалено application/src/test/java/hello/
+Будет удалено application/src/test/resources/
+Будет удалено entity/src/main/resources/
+Будет удалено entity/src/test/java/hello/
+Будет удалено entity/src/test/resources/
+Будет удалено processor/src/main/resources/
+Будет удалено processor/src/test/
+Будет удалено repository/src/main/resources/
+Будет удалено repository/src/test/
+Будет удалено service/src/main/resources/
+Будет удалено service/src/test/
+Будет удалено web/src/main/resources/
+Будет удалено web/src/test/
