@@ -1,0 +1,13 @@
+group 'by.itsm.msg.client'
+version '0.0.1'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'by.itsm.msg.Client'
+
+jar {
+    manifest {
+        attributes "Main-Class": mainClassName
+    }
+}

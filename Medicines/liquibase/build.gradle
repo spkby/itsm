@@ -1,0 +1,28 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'java'
+
+dependencyManagement {
+    imports {
+        mavenBom SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+group 'by.itsm.patients'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-context'
+
+    compile group: 'org.springframework', name: 'spring-jdbc'
+
+    //https://mvnrepository.com/artifact/org.liquibase/liquibase-core
+    compile group: 'org.liquibase', name: 'liquibase-core'
+}

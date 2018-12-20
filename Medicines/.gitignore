@@ -1,0 +1,15 @@
+*.iml
+*.jar
+*.jpg
+/.idea/
+*/.idea/
+*/out/
+*/lib/
+*/.gradle/
+*/gradle/
+*/build/
+*gradlew.bat
+*gradlew
+/gradle/
+/.gradle/
+*.cmd

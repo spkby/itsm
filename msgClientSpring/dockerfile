@@ -1,0 +1,9 @@
+FROM vlaship/ubuntu_git_gradle
+
+RUN git clone https://github.com/vlaship/msgClientSpring \
+&& cd msgClient \
+&& gradle build \
+&& cd build/libs \
+&& mv *.jar /client.jar
+
+ENTRYPOINT ["java","-jar","client.jar"]

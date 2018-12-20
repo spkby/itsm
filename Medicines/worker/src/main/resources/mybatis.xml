@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <typeAliases>
+        <typeAlias alias="State" type="by.itsm.patients.common.entity.State"/>
+        <typeAlias alias="Patient" type="by.itsm.patients.common.entity.Patient"/>
+        <typeAlias alias="Product" type="by.itsm.patients.common.entity.Product"/>
+        <typeAlias alias="Sale" type="by.itsm.patients.common.entity.Sale"/>
+    </typeAliases>
+    <mappers>
+        <mapper resource="sale.xml"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,16 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'by.itsm.msg.Server'
+
+jar {
+    manifest {
+        attributes "Main-Class": mainClassName
+    }
+}
+
+group 'by.itsm.msg.server'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
