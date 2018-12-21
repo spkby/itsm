@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="by.itsm.patients.worker.mapper.ReportsMapper">
+
+    <resultMap id="resultProduct" type="Product">
+        <id property="id" column="product_id"/>
+        <result property="name" column="product_name"/>
+        <association property="state" column="state_id" resultMap="resultState"/>
+    </resultMap>
+
+    <resultMap id="resultPatient" type="Patient">
+        <id property="id" column="patient_id"/>
+        <result property="phone" column="patient_phone"/>
+        <association property="state" column="state_id" resultMap="resultState"/>
+    </resultMap>
+
+    <resultMap id="resultState" type="State">
+        <id property="id" column="state_id"/>
+        <result property="code" column="state_code"/>
+        <result property="name" column="state_name"/>
+    </resultMap>
+
+    <resultMap id="resultSale" type="Sale">
+        <id property="id" column="sale_id"/>
+        <result property="date" column="sale_date"/>
+        <association property="patient" column="patient_id" resultMap="resultPatient"/>
+        <association property="product" column="product_id" resultMap="resultProduct"/>
+    </resultMap>
+
+    <select id="selectSales" resultMap="resultSale" parameterType="date">
+        select
+            sale.id       as sale_id,
+            sale.date     as sale_date,
+            patient.id    as patient_id,
+            patient.phone as patient_phone,
+            product.id    as product_id,
+            product.name  as product_name,
+            state.id      as state_id,
+            state.name    as state_name,
+            state.code    as state_code
+        from sale
+                 left OUTER join patient on patient.id = sale.patient_id
+                 left outer join product on product.id = sale.product_id
+                 left join state on patient.state_id = state.id
+        WHERE date between #{dateFrom} and #{dateTo}
+    </select>
+
+</mapper>

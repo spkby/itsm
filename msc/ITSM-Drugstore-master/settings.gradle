@@ -1,0 +1,8 @@
+include 'common'
+include 'liquibase'
+include 'elasticmq'
+include 'console'
+include 'logic'
+include 'worker'
+include 'web'
+

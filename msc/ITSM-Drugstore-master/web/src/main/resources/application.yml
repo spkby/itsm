@@ -1,0 +1,28 @@
+spring:
+  liquibase:
+    changeLog: classpath:medicines-changelogs.yaml
+  application:
+    name: web
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/patients?nullNamePatternMatchesAll=true
+    username: root
+    password: pass
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      javax:
+        persistence:
+          validation:
+            mode: none
+      hibernate:
+        dialect:                       org.hibernate.dialect.MySQL5Dialect
+        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+logging:
+  level:
+    org.springframework: info
+    com.itsm.pub.courses.patients: debug
